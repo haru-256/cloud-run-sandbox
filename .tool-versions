@@ -1,0 +1,4 @@
+gcloud 495.0.0
+terraform 1.9.7
+tflint 0.53.0
+trivy 0.56.1
