@@ -3,6 +3,7 @@
 
 PORT ?= 8000
 LOG_LEVEL ?= debug
+GCP_PROJCT_ID ?= ${CLOUDSDK_ACTIVE_CONFIG_NAME}
 
 lint: ## Run Linter
 	uv run ruff check .
@@ -20,7 +21,9 @@ lock: ## Lock dependencies
 
 # TODO: change image tag for clooud run
 build: ## Build the image
-	docker build --tag=logging:dev --target=deploy .
+	docker build --tag=us-central1-docker.pkg.dev/${GCP_PROJCT_ID}/logging/logging:dev \
+		--target=deploy .
+	docker push us-central1-docker.pkg.dev/${GCP_PROJCT_ID}/logging/logging:dev
 
 setup: ## Setup the project
 	uv sync

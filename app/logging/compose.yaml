@@ -1,0 +1,16 @@
+name: logging
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: api:local
+    # command: >
+    #   sh -c "tail -f /dev/null"
+    container_name: api
+    environment:
+      - PORT=8081
+      - LOG_LEVEL=debug
+    ports:
+      - "8081:8081"
