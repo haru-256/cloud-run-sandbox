@@ -17,3 +17,12 @@ module "artifact_registory_repository" {
   repository_id          = "logging"
   repository_description = "logging repository"
 }
+
+module "cloud_run" {
+  source         = "../../modules/cloud_run"
+  gcp_project_id = data.google_project.project.project_id
+  region         = "us-central1"
+  cloud_run_name = "logging"
+  image_name     = var.image_name
+  allowed_users  = [var.owner_member_email]
+}

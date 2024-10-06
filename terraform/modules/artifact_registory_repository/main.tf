@@ -1,6 +1,6 @@
 # allow to use the google cloud service api
 resource "google_project_service" "services" {
-  for_each = ["artifactregistry.googleapis.com"]
+  for_each = toset(["artifactregistry.googleapis.com"])
 
   project            = var.gcp_project_id
   service            = each.value

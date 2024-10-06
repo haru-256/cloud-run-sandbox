@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      platforms:
+        - linux/amd64
     image: api:local
     # command: >
     #   sh -c "tail -f /dev/null"

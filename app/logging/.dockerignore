@@ -1,5 +1,6 @@
 .envrc
 README.md
+scripts/
 
 # Docker
 docker-compose.yml
